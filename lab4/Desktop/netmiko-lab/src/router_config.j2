@@ -1,0 +1,11 @@
+hostname {{ router }}
+
+interface Loopback0
+ ip address {{ loopback }} 255.255.255.255
+
+{% for intf, ip in interfaces.items() %}
+interface {{ intf }}
+ ip address {{ ip }}
+ no shutdown
+{% endfor %}
+
